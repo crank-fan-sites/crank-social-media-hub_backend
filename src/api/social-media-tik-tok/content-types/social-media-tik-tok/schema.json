@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "social_media_tik_toks",
+  "info": {
+    "singularName": "social-media-tik-tok",
+    "pluralName": "social-media-tik-toks",
+    "displayName": "Social Media: TikTok"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "testy": {
+      "type": "string"
+    }
+  }
+}
