@@ -1,5 +1,5 @@
 {
-  "kind": "collectionType",
+  "kind": "singleType",
   "collectionName": "social_media_instagrams",
   "info": {
     "singularName": "social-media-instagram",
@@ -20,24 +20,27 @@
     "api_client_id": {
       "type": "string"
     },
-    "api_client_secret": {
-      "type": "password"
-    },
-    "api_access_token": {
-      "type": "password"
-    },
-    "api_refresh_token": {
-      "type": "password"
-    },
-    "api_token_refresh_expiry": {
+    "last_updated": {
       "type": "integer",
       "min": 0
     },
-    "api_access_token_expiry": {
+    "api_token_expiry": {
       "type": "integer",
       "min": 0
     },
     "api_redirect_uri": {
+      "type": "string"
+    },
+    "api_client_secret": {
+      "type": "string"
+    },
+    "api_access_token": {
+      "type": "string"
+    },
+    "api_refresh_token": {
+      "type": "string"
+    },
+    "user_id": {
       "type": "string"
     }
   }

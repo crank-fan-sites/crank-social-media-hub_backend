@@ -1,5 +1,5 @@
 {
-  "kind": "collectionType",
+  "kind": "singleType",
   "collectionName": "social_media_tik_toks",
   "info": {
     "singularName": "social-media-tik-tok",

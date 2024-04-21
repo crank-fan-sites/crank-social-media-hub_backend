@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "social_media_youtubes",
+  "info": {
+    "singularName": "social-media-youtube",
+    "pluralName": "social-media-youtubes",
+    "displayName": "Social Media: Youtube"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "access_token": {
+      "type": "string"
+    }
+  }
+}

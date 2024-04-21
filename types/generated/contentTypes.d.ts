@@ -789,7 +789,7 @@ export interface PluginI18NLocale extends Schema.CollectionType {
 }
 
 export interface ApiSocialMediaInstagramSocialMediaInstagram
-  extends Schema.CollectionType {
+  extends Schema.SingleType {
   collectionName: "social_media_instagrams";
   info: {
     singularName: "social-media-instagram";
@@ -805,17 +805,14 @@ export interface ApiSocialMediaInstagramSocialMediaInstagram
       Attribute.Required &
       Attribute.DefaultTo<false>;
     api_client_id: Attribute.String;
-    api_client_secret: Attribute.Password;
-    api_access_token: Attribute.Password;
-    api_refresh_token: Attribute.Password;
-    api_token_refresh_expiry: Attribute.Integer &
+    last_updated: Attribute.Integer &
       Attribute.SetMinMax<
         {
           min: 0;
         },
         number
       >;
-    api_access_token_expiry: Attribute.Integer &
+    api_token_expiry: Attribute.Integer &
       Attribute.SetMinMax<
         {
           min: 0;
@@ -823,6 +820,10 @@ export interface ApiSocialMediaInstagramSocialMediaInstagram
         number
       >;
     api_redirect_uri: Attribute.String;
+    api_client_secret: Attribute.String;
+    api_access_token: Attribute.String;
+    api_refresh_token: Attribute.String;
+    user_id: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -842,7 +843,7 @@ export interface ApiSocialMediaInstagramSocialMediaInstagram
 }
 
 export interface ApiSocialMediaTikTokSocialMediaTikTok
-  extends Schema.CollectionType {
+  extends Schema.SingleType {
   collectionName: "social_media_tik_toks";
   info: {
     singularName: "social-media-tik-tok";
@@ -872,6 +873,37 @@ export interface ApiSocialMediaTikTokSocialMediaTikTok
   };
 }
 
+export interface ApiSocialMediaYoutubeSocialMediaYoutube
+  extends Schema.SingleType {
+  collectionName: "social_media_youtubes";
+  info: {
+    singularName: "social-media-youtube";
+    pluralName: "social-media-youtubes";
+    displayName: "Social Media: Youtube";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    access_token: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      "api::social-media-youtube.social-media-youtube",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      "api::social-media-youtube.social-media-youtube",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module "@strapi/types" {
   export module Shared {
     export interface ContentTypes {
@@ -892,6 +924,7 @@ declare module "@strapi/types" {
       "plugin::i18n.locale": PluginI18NLocale;
       "api::social-media-instagram.social-media-instagram": ApiSocialMediaInstagramSocialMediaInstagram;
       "api::social-media-tik-tok.social-media-tik-tok": ApiSocialMediaTikTokSocialMediaTikTok;
+      "api::social-media-youtube.social-media-youtube": ApiSocialMediaYoutubeSocialMediaYoutube;
     }
   }
 }
