@@ -4,14 +4,23 @@
   "info": {
     "singularName": "social-media-youtube",
     "pluralName": "social-media-youtubes",
-    "displayName": "Social Media: Youtube"
+    "displayName": "Social Media: Youtube",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "access_token": {
+    "enabled": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "channel_id": {
+      "type": "string"
+    },
+    "playlist_id": {
       "type": "string"
     }
   }

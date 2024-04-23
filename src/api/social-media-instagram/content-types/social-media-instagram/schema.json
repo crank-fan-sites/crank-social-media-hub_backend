@@ -20,18 +20,10 @@
     "api_client_id": {
       "type": "string"
     },
-    "last_updated": {
-      "type": "integer",
-      "min": 0
-    },
-    "api_token_expiry": {
-      "type": "integer",
-      "min": 0
-    },
-    "api_redirect_uri": {
+    "api_client_secret": {
       "type": "string"
     },
-    "api_client_secret": {
+    "api_redirect_uri": {
       "type": "string"
     },
     "api_access_token": {
@@ -39,6 +31,14 @@
     },
     "api_refresh_token": {
       "type": "string"
+    },
+    "api_token_expiry": {
+      "type": "integer",
+      "min": 0
+    },
+    "last_updated": {
+      "type": "integer",
+      "min": 0
     },
     "user_id": {
       "type": "string"

@@ -4,14 +4,26 @@
   "info": {
     "singularName": "social-media-tik-tok",
     "pluralName": "social-media-tik-toks",
-    "displayName": "Social Media: TikTok"
+    "displayName": "Social Media: TikTok",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "testy": {
+    "enabled": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "profile": {
+      "type": "string"
+    },
+    "video_id": {
+      "type": "string"
+    },
+    "video_creator": {
       "type": "string"
     }
   }
