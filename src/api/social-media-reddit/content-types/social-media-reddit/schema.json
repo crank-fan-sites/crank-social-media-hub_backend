@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "social_media_reddits",
+  "info": {
+    "singularName": "social-media-reddit",
+    "pluralName": "social-media-reddits",
+    "displayName": "Social Media: Reddit"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "enabled": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "subreddit": {
+      "type": "string"
+    }
+  }
+}

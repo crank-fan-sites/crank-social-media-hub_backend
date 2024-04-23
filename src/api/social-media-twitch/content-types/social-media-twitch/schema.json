@@ -1,0 +1,46 @@
+{
+  "kind": "singleType",
+  "collectionName": "social_media_twitches",
+  "info": {
+    "singularName": "social-media-twitch",
+    "pluralName": "social-media-twitches",
+    "displayName": "Social Media: Twitch",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "channel_enabled": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "playlist_enabled": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "channel_handle": {
+      "type": "string"
+    },
+    "highlighted_playlist": {
+      "type": "string"
+    },
+    "content": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "enabled": {
+      "type": "boolean"
+    }
+  }
+}
