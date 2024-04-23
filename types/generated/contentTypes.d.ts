@@ -788,6 +788,38 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiSocialMediaDiscordSocialMediaDiscord
+  extends Schema.SingleType {
+  collectionName: "social_media_discords";
+  info: {
+    singularName: "social-media-discord";
+    pluralName: "social-media-discords";
+    displayName: "Social Media: Discord";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    enabled: Attribute.Boolean;
+    bot_token: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      "api::social-media-discord.social-media-discord",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      "api::social-media-discord.social-media-discord",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSocialMediaInstagramSocialMediaInstagram
   extends Schema.SingleType {
   collectionName: "social_media_instagrams";
@@ -805,13 +837,10 @@ export interface ApiSocialMediaInstagramSocialMediaInstagram
       Attribute.Required &
       Attribute.DefaultTo<false>;
     api_client_id: Attribute.String;
-    last_updated: Attribute.Integer &
-      Attribute.SetMinMax<
-        {
-          min: 0;
-        },
-        number
-      >;
+    api_client_secret: Attribute.String;
+    api_redirect_uri: Attribute.String;
+    api_access_token: Attribute.String;
+    api_refresh_token: Attribute.String;
     api_token_expiry: Attribute.Integer &
       Attribute.SetMinMax<
         {
@@ -819,10 +848,13 @@ export interface ApiSocialMediaInstagramSocialMediaInstagram
         },
         number
       >;
-    api_redirect_uri: Attribute.String;
-    api_client_secret: Attribute.String;
-    api_access_token: Attribute.String;
-    api_refresh_token: Attribute.String;
+    last_updated: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
     user_id: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -842,6 +874,92 @@ export interface ApiSocialMediaInstagramSocialMediaInstagram
   };
 }
 
+export interface ApiSocialMediaPatreonSocialMediaPatreon
+  extends Schema.SingleType {
+  collectionName: "social_media_patreons";
+  info: {
+    singularName: "social-media-patreon";
+    pluralName: "social-media-patreons";
+    displayName: "Social Media: Patreon";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    enabled: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    client_id: Attribute.String;
+    client_secret: Attribute.String;
+    redirect_uri: Attribute.String;
+    access_token: Attribute.String;
+    refresh_token: Attribute.String;
+    token_expiry: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
+    last_updated: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      "api::social-media-patreon.social-media-patreon",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      "api::social-media-patreon.social-media-patreon",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSocialMediaRedditSocialMediaReddit
+  extends Schema.SingleType {
+  collectionName: "social_media_reddits";
+  info: {
+    singularName: "social-media-reddit";
+    pluralName: "social-media-reddits";
+    displayName: "Social Media: Reddit";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    enabled: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    subreddit: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      "api::social-media-reddit.social-media-reddit",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      "api::social-media-reddit.social-media-reddit",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSocialMediaTikTokSocialMediaTikTok
   extends Schema.SingleType {
   collectionName: "social_media_tik_toks";
@@ -849,12 +967,18 @@ export interface ApiSocialMediaTikTokSocialMediaTikTok
     singularName: "social-media-tik-tok";
     pluralName: "social-media-tik-toks";
     displayName: "Social Media: TikTok";
+    description: "";
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    testy: Attribute.String;
+    enabled: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    profile: Attribute.String;
+    video_id: Attribute.String;
+    video_creator: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -873,6 +997,78 @@ export interface ApiSocialMediaTikTokSocialMediaTikTok
   };
 }
 
+export interface ApiSocialMediaTwitchSocialMediaTwitch
+  extends Schema.SingleType {
+  collectionName: "social_media_twitches";
+  info: {
+    singularName: "social-media-twitch";
+    pluralName: "social-media-twitches";
+    displayName: "Social Media: Twitch";
+    description: "";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    channel_enabled: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    playlist_enabled: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    channel_handle: Attribute.String;
+    highlighted_playlist: Attribute.String;
+    content: Attribute.Media;
+    enabled: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      "api::social-media-twitch.social-media-twitch",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      "api::social-media-twitch.social-media-twitch",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSocialMediaTwitterSocialMediaTwitter
+  extends Schema.SingleType {
+  collectionName: "social_media_twitters";
+  info: {
+    singularName: "social-media-twitter";
+    pluralName: "social-media-twitters";
+    displayName: "Social Media: Twitter";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    profile: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      "api::social-media-twitter.social-media-twitter",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      "api::social-media-twitter.social-media-twitter",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSocialMediaYoutubeSocialMediaYoutube
   extends Schema.SingleType {
   collectionName: "social_media_youtubes";
@@ -880,12 +1076,17 @@ export interface ApiSocialMediaYoutubeSocialMediaYoutube
     singularName: "social-media-youtube";
     pluralName: "social-media-youtubes";
     displayName: "Social Media: Youtube";
+    description: "";
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    access_token: Attribute.String;
+    enabled: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    channel_id: Attribute.String;
+    playlist_id: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -922,8 +1123,13 @@ declare module "@strapi/types" {
       "plugin::users-permissions.role": PluginUsersPermissionsRole;
       "plugin::users-permissions.user": PluginUsersPermissionsUser;
       "plugin::i18n.locale": PluginI18NLocale;
+      "api::social-media-discord.social-media-discord": ApiSocialMediaDiscordSocialMediaDiscord;
       "api::social-media-instagram.social-media-instagram": ApiSocialMediaInstagramSocialMediaInstagram;
+      "api::social-media-patreon.social-media-patreon": ApiSocialMediaPatreonSocialMediaPatreon;
+      "api::social-media-reddit.social-media-reddit": ApiSocialMediaRedditSocialMediaReddit;
       "api::social-media-tik-tok.social-media-tik-tok": ApiSocialMediaTikTokSocialMediaTikTok;
+      "api::social-media-twitch.social-media-twitch": ApiSocialMediaTwitchSocialMediaTwitch;
+      "api::social-media-twitter.social-media-twitter": ApiSocialMediaTwitterSocialMediaTwitter;
       "api::social-media-youtube.social-media-youtube": ApiSocialMediaYoutubeSocialMediaYoutube;
     }
   }

@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "social_media_discords",
+  "info": {
+    "singularName": "social-media-discord",
+    "pluralName": "social-media-discords",
+    "displayName": "Social Media: Discord"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "enabled": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "bot_token": {
+      "type": "string"
+    }
+  }
+}
