@@ -788,6 +788,83 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiFooterLinkFooterLink extends Schema.CollectionType {
+  collectionName: "footer_links";
+  info: {
+    singularName: "footer-link";
+    pluralName: "footer-links";
+    displayName: "Footer Link";
+    description: "";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    url: Attribute.String & Attribute.Required;
+    description: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      "api::footer-link.footer-link",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      "api::footer-link.footer-link",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLinkLink extends Schema.CollectionType {
+  collectionName: "links";
+  info: {
+    singularName: "link";
+    pluralName: "links";
+    displayName: "Link";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    url: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<"api::link.link", "oneToOne", "admin::user"> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<"api::link.link", "oneToOne", "admin::user"> &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      "api::link.link",
+      "oneToMany",
+      "api::link.link"
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiSocialMediaDiscordSocialMediaDiscord
   extends Schema.SingleType {
   collectionName: "social_media_discords";
@@ -795,6 +872,7 @@ export interface ApiSocialMediaDiscordSocialMediaDiscord
     singularName: "social-media-discord";
     pluralName: "social-media-discords";
     displayName: "Social Media: Discord";
+    description: "";
   };
   options: {
     draftAndPublish: true;
@@ -802,6 +880,10 @@ export interface ApiSocialMediaDiscordSocialMediaDiscord
   attributes: {
     enabled: Attribute.Boolean;
     bot_token: Attribute.String;
+    guild_id: Attribute.String;
+    channel_id: Attribute.String;
+    widget_url: Attribute.String;
+    channel_name: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -953,6 +1035,37 @@ export interface ApiSocialMediaRedditSocialMediaReddit
       Attribute.Private;
     updatedBy: Attribute.Relation<
       "api::social-media-reddit.social-media-reddit",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSocialMediaSoundcloudSocialMediaSoundcloud
+  extends Schema.CollectionType {
+  collectionName: "social_media_soundclouds";
+  info: {
+    singularName: "social-media-soundcloud";
+    pluralName: "social-media-soundclouds";
+    displayName: "Social Media: Soundcloud";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    media_url: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      "api::social-media-soundcloud.social-media-soundcloud",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      "api::social-media-soundcloud.social-media-soundcloud",
       "oneToOne",
       "admin::user"
     > &
@@ -1123,10 +1236,13 @@ declare module "@strapi/types" {
       "plugin::users-permissions.role": PluginUsersPermissionsRole;
       "plugin::users-permissions.user": PluginUsersPermissionsUser;
       "plugin::i18n.locale": PluginI18NLocale;
+      "api::footer-link.footer-link": ApiFooterLinkFooterLink;
+      "api::link.link": ApiLinkLink;
       "api::social-media-discord.social-media-discord": ApiSocialMediaDiscordSocialMediaDiscord;
       "api::social-media-instagram.social-media-instagram": ApiSocialMediaInstagramSocialMediaInstagram;
       "api::social-media-patreon.social-media-patreon": ApiSocialMediaPatreonSocialMediaPatreon;
       "api::social-media-reddit.social-media-reddit": ApiSocialMediaRedditSocialMediaReddit;
+      "api::social-media-soundcloud.social-media-soundcloud": ApiSocialMediaSoundcloudSocialMediaSoundcloud;
       "api::social-media-tik-tok.social-media-tik-tok": ApiSocialMediaTikTokSocialMediaTikTok;
       "api::social-media-twitch.social-media-twitch": ApiSocialMediaTwitchSocialMediaTwitch;
       "api::social-media-twitter.social-media-twitter": ApiSocialMediaTwitterSocialMediaTwitter;

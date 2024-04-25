@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "social_media_soundclouds",
+  "info": {
+    "singularName": "social-media-soundcloud",
+    "pluralName": "social-media-soundclouds",
+    "displayName": "Social Media: Soundcloud"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "media_url": {
+      "type": "string"
+    }
+  }
+}
