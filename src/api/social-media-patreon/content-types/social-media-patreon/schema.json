@@ -4,7 +4,8 @@
   "info": {
     "singularName": "social-media-patreon",
     "pluralName": "social-media-patreons",
-    "displayName": "Social Media: Patreon"
+    "displayName": "Social Media: Patreon",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -38,6 +39,9 @@
     "last_updated": {
       "type": "integer",
       "min": 0
+    },
+    "campaign_id": {
+      "type": "string"
     }
   }
 }

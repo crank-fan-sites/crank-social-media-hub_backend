@@ -4,7 +4,8 @@
   "info": {
     "singularName": "social-media-twitter",
     "pluralName": "social-media-twitters",
-    "displayName": "Social Media: Twitter"
+    "displayName": "Social Media: Twitter",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,6 +14,14 @@
   "attributes": {
     "profile": {
       "type": "string"
+    },
+    "dark_mode": {
+      "type": "boolean",
+      "default": false
+    },
+    "widget_height": {
+      "type": "integer",
+      "default": 800
     }
   }
 }
