@@ -821,6 +821,39 @@ export interface ApiFooterLinkFooterLink extends Schema.CollectionType {
   };
 }
 
+export interface ApiHeaderLinkHeaderLink extends Schema.CollectionType {
+  collectionName: "header_links";
+  info: {
+    singularName: "header-link";
+    pluralName: "header-links";
+    displayName: "Header Link";
+    description: "";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    url: Attribute.String & Attribute.Required;
+    external: Attribute.Boolean & Attribute.DefaultTo<false>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      "api::header-link.header-link",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      "api::header-link.header-link",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiLinkLink extends Schema.CollectionType {
   collectionName: "links";
   info: {
@@ -963,6 +996,7 @@ export interface ApiSocialMediaPatreonSocialMediaPatreon
     singularName: "social-media-patreon";
     pluralName: "social-media-patreons";
     displayName: "Social Media: Patreon";
+    description: "";
   };
   options: {
     draftAndPublish: true;
@@ -990,6 +1024,7 @@ export interface ApiSocialMediaPatreonSocialMediaPatreon
         },
         number
       >;
+    campaign_id: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1158,12 +1193,15 @@ export interface ApiSocialMediaTwitterSocialMediaTwitter
     singularName: "social-media-twitter";
     pluralName: "social-media-twitters";
     displayName: "Social Media: Twitter";
+    description: "";
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     profile: Attribute.String;
+    dark_mode: Attribute.Boolean & Attribute.DefaultTo<false>;
+    widget_height: Attribute.Integer & Attribute.DefaultTo<800>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1237,6 +1275,7 @@ declare module "@strapi/types" {
       "plugin::users-permissions.user": PluginUsersPermissionsUser;
       "plugin::i18n.locale": PluginI18NLocale;
       "api::footer-link.footer-link": ApiFooterLinkFooterLink;
+      "api::header-link.header-link": ApiHeaderLinkHeaderLink;
       "api::link.link": ApiLinkLink;
       "api::social-media-discord.social-media-discord": ApiSocialMediaDiscordSocialMediaDiscord;
       "api::social-media-instagram.social-media-instagram": ApiSocialMediaInstagramSocialMediaInstagram;
