@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "main_links",
+  "info": {
+    "singularName": "main-link",
+    "pluralName": "main-links",
+    "displayName": "Main Link",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "top_links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.link"
+    },
+    "bottom_links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.link"
+    }
+  }
+}

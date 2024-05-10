@@ -1,0 +1,61 @@
+{
+  "kind": "singleType",
+  "collectionName": "front_pages",
+  "info": {
+    "singularName": "front-page",
+    "pluralName": "front-pages",
+    "displayName": "Front Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "discord": {
+      "type": "component",
+      "repeatable": false,
+      "component": "social-media.discord"
+    },
+    "instagram": {
+      "type": "component",
+      "repeatable": false,
+      "component": "social-media.instagram"
+    },
+    "patreon": {
+      "type": "component",
+      "repeatable": false,
+      "component": "social-media.patreon"
+    },
+    "reddit": {
+      "type": "component",
+      "repeatable": false,
+      "component": "social-media.reddit"
+    },
+    "tiktok": {
+      "type": "component",
+      "repeatable": false,
+      "component": "social-media.tiktok"
+    },
+    "twitch": {
+      "type": "component",
+      "repeatable": false,
+      "component": "social-media.twitch"
+    },
+    "twitter": {
+      "type": "component",
+      "repeatable": false,
+      "component": "social-media.twitter"
+    },
+    "youtube": {
+      "type": "component",
+      "repeatable": false,
+      "component": "social-media.youtube"
+    },
+    "soundcloud": {
+      "type": "component",
+      "repeatable": true,
+      "component": "social-media.soundcloud"
+    }
+  }
+}
