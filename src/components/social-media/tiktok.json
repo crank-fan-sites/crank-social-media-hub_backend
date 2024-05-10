@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_social_media_tiktoks",
+  "info": {
+    "displayName": "Tiktok"
+  },
+  "options": {},
+  "attributes": {
+    "profile": {
+      "type": "string"
+    },
+    "video_id": {
+      "type": "string"
+    },
+    "video_creator": {
+      "type": "string"
+    }
+  }
+}

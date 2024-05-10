@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_social_media_soundclouds",
+  "info": {
+    "displayName": "Soundcloud"
+  },
+  "options": {},
+  "attributes": {
+    "media_url": {
+      "type": "string"
+    }
+  }
+}

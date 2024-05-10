@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_social_media_discords",
+  "info": {
+    "displayName": "Discord"
+  },
+  "options": {},
+  "attributes": {
+    "bot_token": {
+      "type": "string"
+    },
+    "guild_id": {
+      "type": "string"
+    },
+    "channel_id": {
+      "type": "string"
+    },
+    "channel_name": {
+      "type": "string"
+    },
+    "widget_url": {
+      "type": "string"
+    }
+  }
+}

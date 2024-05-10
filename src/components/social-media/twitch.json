@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_social_media_twitches",
+  "info": {
+    "displayName": "Twitch",
+    "icon": "cast"
+  },
+  "options": {},
+  "attributes": {
+    "channel_handle": {
+      "type": "string"
+    },
+    "highlighted_playlist": {
+      "type": "string"
+    }
+  }
+}

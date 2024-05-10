@@ -788,32 +788,38 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
-export interface ApiFooterLinkFooterLink extends Schema.CollectionType {
-  collectionName: "footer_links";
+export interface ApiFrontPageFrontPage extends Schema.SingleType {
+  collectionName: "front_pages";
   info: {
-    singularName: "footer-link";
-    pluralName: "footer-links";
-    displayName: "Footer Link";
+    singularName: "front-page";
+    pluralName: "front-pages";
+    displayName: "Front Page";
     description: "";
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    url: Attribute.String & Attribute.Required;
-    description: Attribute.String;
+    discord: Attribute.Component<"social-media.discord">;
+    instagram: Attribute.Component<"social-media.instagram">;
+    patreon: Attribute.Component<"social-media.patreon">;
+    reddit: Attribute.Component<"social-media.reddit">;
+    tiktok: Attribute.Component<"social-media.tiktok">;
+    twitch: Attribute.Component<"social-media.twitch">;
+    twitter: Attribute.Component<"social-media.twitter">;
+    youtube: Attribute.Component<"social-media.youtube">;
+    soundcloud: Attribute.Component<"social-media.soundcloud", true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      "api::footer-link.footer-link",
+      "api::front-page.front-page",
       "oneToOne",
       "admin::user"
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      "api::footer-link.footer-link",
+      "api::front-page.front-page",
       "oneToOne",
       "admin::user"
     > &
@@ -821,80 +827,35 @@ export interface ApiFooterLinkFooterLink extends Schema.CollectionType {
   };
 }
 
-export interface ApiHeaderLinkHeaderLink extends Schema.CollectionType {
-  collectionName: "header_links";
+export interface ApiMainLinkMainLink extends Schema.SingleType {
+  collectionName: "main_links";
   info: {
-    singularName: "header-link";
-    pluralName: "header-links";
-    displayName: "Header Link";
+    singularName: "main-link";
+    pluralName: "main-links";
+    displayName: "Main Link";
     description: "";
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    url: Attribute.String & Attribute.Required;
-    external: Attribute.Boolean & Attribute.DefaultTo<false>;
+    top_links: Attribute.Component<"shared.link", true>;
+    bottom_links: Attribute.Component<"shared.link", true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      "api::header-link.header-link",
+      "api::main-link.main-link",
       "oneToOne",
       "admin::user"
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      "api::header-link.header-link",
+      "api::main-link.main-link",
       "oneToOne",
       "admin::user"
     > &
       Attribute.Private;
-  };
-}
-
-export interface ApiLinkLink extends Schema.CollectionType {
-  collectionName: "links";
-  info: {
-    singularName: "link";
-    pluralName: "links";
-    displayName: "Link";
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    url: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<"api::link.link", "oneToOne", "admin::user"> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<"api::link.link", "oneToOne", "admin::user"> &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      "api::link.link",
-      "oneToMany",
-      "api::link.link"
-    >;
-    locale: Attribute.String;
   };
 }
 
@@ -911,12 +872,11 @@ export interface ApiSocialMediaDiscordSocialMediaDiscord
     draftAndPublish: true;
   };
   attributes: {
-    enabled: Attribute.Boolean;
     bot_token: Attribute.String;
     guild_id: Attribute.String;
     channel_id: Attribute.String;
-    widget_url: Attribute.String;
     channel_name: Attribute.String;
+    widget_url: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -928,6 +888,37 @@ export interface ApiSocialMediaDiscordSocialMediaDiscord
       Attribute.Private;
     updatedBy: Attribute.Relation<
       "api::social-media-discord.social-media-discord",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSocialMediaFacebookSocialMediaFacebook
+  extends Schema.SingleType {
+  collectionName: "social_media_facebooks";
+  info: {
+    singularName: "social-media-facebook";
+    pluralName: "social-media-facebooks";
+    displayName: "Social Media: Facebook";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    test: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      "api::social-media-facebook.social-media-facebook",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      "api::social-media-facebook.social-media-facebook",
       "oneToOne",
       "admin::user"
     > &
@@ -1274,10 +1265,10 @@ declare module "@strapi/types" {
       "plugin::users-permissions.role": PluginUsersPermissionsRole;
       "plugin::users-permissions.user": PluginUsersPermissionsUser;
       "plugin::i18n.locale": PluginI18NLocale;
-      "api::footer-link.footer-link": ApiFooterLinkFooterLink;
-      "api::header-link.header-link": ApiHeaderLinkHeaderLink;
-      "api::link.link": ApiLinkLink;
+      "api::front-page.front-page": ApiFrontPageFrontPage;
+      "api::main-link.main-link": ApiMainLinkMainLink;
       "api::social-media-discord.social-media-discord": ApiSocialMediaDiscordSocialMediaDiscord;
+      "api::social-media-facebook.social-media-facebook": ApiSocialMediaFacebookSocialMediaFacebook;
       "api::social-media-instagram.social-media-instagram": ApiSocialMediaInstagramSocialMediaInstagram;
       "api::social-media-patreon.social-media-patreon": ApiSocialMediaPatreonSocialMediaPatreon;
       "api::social-media-reddit.social-media-reddit": ApiSocialMediaRedditSocialMediaReddit;

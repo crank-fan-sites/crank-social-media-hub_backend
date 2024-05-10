@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_social_media_instagrams",
+  "info": {
+    "displayName": "Instagram"
+  },
+  "options": {},
+  "attributes": {
+    "api_client_id": {
+      "type": "string"
+    },
+    "api_client_secret": {
+      "type": "string"
+    },
+    "api_redirect_uri": {
+      "type": "string"
+    },
+    "api_access_token": {
+      "type": "string"
+    },
+    "last_updated": {
+      "type": "integer",
+      "min": 0
+    }
+  }
+}

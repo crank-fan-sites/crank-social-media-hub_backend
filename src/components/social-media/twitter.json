@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_social_media_twitters",
+  "info": {
+    "displayName": "Twitter"
+  },
+  "options": {},
+  "attributes": {
+    "profile": {
+      "type": "string"
+    },
+    "dark_mode": {
+      "type": "boolean",
+      "default": false
+    },
+    "widget_height": {
+      "type": "integer",
+      "default": 800
+    }
+  }
+}

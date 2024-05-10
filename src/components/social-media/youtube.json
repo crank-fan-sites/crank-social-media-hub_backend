@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_social_media_youtubes",
+  "info": {
+    "displayName": "Youtube"
+  },
+  "options": {},
+  "attributes": {
+    "channel_id": {
+      "type": "string"
+    },
+    "playlist_id": {
+      "type": "string"
+    }
+  }
+}
