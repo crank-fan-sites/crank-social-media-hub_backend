@@ -1,7 +1,8 @@
 {
   "collectionName": "components_social_media_discords",
   "info": {
-    "displayName": "Discord"
+    "displayName": "Discord",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -19,6 +20,11 @@
     },
     "widget_url": {
       "type": "string"
+    },
+    "buttonLink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.button"
     }
   }
 }

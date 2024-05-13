@@ -1,5 +1,26 @@
 import type { Schema, Attribute } from "@strapi/strapi";
 
+export interface SharedButton extends Schema.Component {
+  collectionName: "components_shared_buttons";
+  info: {
+    displayName: "button";
+    icon: "folder";
+    description: "";
+  };
+  attributes: {
+    variant: Attribute.Enumeration<
+      ["default", "destructive", "outline", "secondary", "ghost", "link"]
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<"default">;
+    size: Attribute.Enumeration<["default", "sm", "lg", "icon"]> &
+      Attribute.Required &
+      Attribute.DefaultTo<"default">;
+    icon: Attribute.String;
+    link: Attribute.Component<"shared.link">;
+  };
+}
+
 export interface SharedLink extends Schema.Component {
   collectionName: "components_shared_links";
   info: {
@@ -32,6 +53,7 @@ export interface SocialMediaDiscord extends Schema.Component {
   collectionName: "components_social_media_discords";
   info: {
     displayName: "Discord";
+    description: "";
   };
   attributes: {
     bot_token: Attribute.String;
@@ -39,6 +61,7 @@ export interface SocialMediaDiscord extends Schema.Component {
     channel_id: Attribute.String;
     channel_name: Attribute.String;
     widget_url: Attribute.String;
+    buttonLink: Attribute.Component<"shared.button", true>;
   };
 }
 
@@ -59,6 +82,7 @@ export interface SocialMediaInstagram extends Schema.Component {
         },
         number
       >;
+    buttonLink: Attribute.Component<"shared.button", true>;
   };
 }
 
@@ -81,6 +105,7 @@ export interface SocialMediaPatreon extends Schema.Component {
         number
       >;
     campaign_id: Attribute.String;
+    buttonLink: Attribute.Component<"shared.button", true>;
   };
 }
 
@@ -91,6 +116,17 @@ export interface SocialMediaReddit extends Schema.Component {
   };
   attributes: {
     subreddit: Attribute.String;
+    buttonLink: Attribute.Component<"shared.button", true>;
+  };
+}
+
+export interface SocialMediaSoundcloudConfig extends Schema.Component {
+  collectionName: "components_social_media_soundcloud_configs";
+  info: {
+    displayName: "SoundcloudConfig";
+  };
+  attributes: {
+    buttonLink: Attribute.Component<"shared.button", true>;
   };
 }
 
@@ -101,6 +137,7 @@ export interface SocialMediaSoundcloud extends Schema.Component {
   };
   attributes: {
     media_url: Attribute.String;
+    buttonLink: Attribute.Component<"shared.button", true>;
   };
 }
 
@@ -113,6 +150,7 @@ export interface SocialMediaTiktok extends Schema.Component {
     profile: Attribute.String;
     video_id: Attribute.String;
     video_creator: Attribute.String;
+    buttonLink: Attribute.Component<"shared.button", true>;
   };
 }
 
@@ -125,6 +163,7 @@ export interface SocialMediaTwitch extends Schema.Component {
   attributes: {
     channel_handle: Attribute.String;
     highlighted_playlist: Attribute.String;
+    buttonLink: Attribute.Component<"shared.button", true>;
   };
 }
 
@@ -137,6 +176,7 @@ export interface SocialMediaTwitter extends Schema.Component {
     profile: Attribute.String;
     dark_mode: Attribute.Boolean & Attribute.DefaultTo<false>;
     widget_height: Attribute.Integer & Attribute.DefaultTo<800>;
+    buttonLink: Attribute.Component<"shared.button", true>;
   };
 }
 
@@ -148,18 +188,21 @@ export interface SocialMediaYoutube extends Schema.Component {
   attributes: {
     channel_id: Attribute.String;
     playlist_id: Attribute.String;
+    buttonLink: Attribute.Component<"shared.button", true>;
   };
 }
 
 declare module "@strapi/types" {
   export module Shared {
     export interface Components {
+      "shared.button": SharedButton;
       "shared.link": SharedLink;
       "shared.menu-link": SharedMenuLink;
       "social-media.discord": SocialMediaDiscord;
       "social-media.instagram": SocialMediaInstagram;
       "social-media.patreon": SocialMediaPatreon;
       "social-media.reddit": SocialMediaReddit;
+      "social-media.soundcloud-config": SocialMediaSoundcloudConfig;
       "social-media.soundcloud": SocialMediaSoundcloud;
       "social-media.tiktok": SocialMediaTiktok;
       "social-media.twitch": SocialMediaTwitch;

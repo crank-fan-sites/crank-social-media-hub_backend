@@ -20,6 +20,11 @@
     "last_updated": {
       "type": "integer",
       "min": 0
+    },
+    "buttonLink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.button"
     }
   }
 }

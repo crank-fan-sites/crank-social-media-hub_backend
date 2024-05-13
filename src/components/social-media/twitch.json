@@ -11,6 +11,11 @@
     },
     "highlighted_playlist": {
       "type": "string"
+    },
+    "buttonLink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.button"
     }
   }
 }

@@ -13,6 +13,11 @@
     },
     "video_creator": {
       "type": "string"
+    },
+    "buttonLink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.button"
     }
   }
 }

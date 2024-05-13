@@ -15,6 +15,11 @@
     "widget_height": {
       "type": "integer",
       "default": 800
+    },
+    "buttonLink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.button"
     }
   }
 }
