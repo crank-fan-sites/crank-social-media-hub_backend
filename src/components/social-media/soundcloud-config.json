@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_social_media_soundcloud_configs",
+  "info": {
+    "displayName": "SoundcloudConfig"
+  },
+  "options": {},
+  "attributes": {
+    "buttonLink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.button"
+    }
+  }
+}

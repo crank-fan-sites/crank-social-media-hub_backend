@@ -56,6 +56,11 @@
       "type": "component",
       "repeatable": true,
       "component": "social-media.soundcloud"
+    },
+    "soundcloudConfig": {
+      "type": "component",
+      "repeatable": false,
+      "component": "social-media.soundcloud-config"
     }
   }
 }
