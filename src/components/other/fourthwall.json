@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_other_fourthwalls",
+  "info": {
+    "displayName": "Fourthwall",
+    "icon": "handHeart",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "Price": {
+      "type": "decimal"
+    },
+    "Link": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "theImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
