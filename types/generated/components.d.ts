@@ -1,5 +1,20 @@
 import type { Schema, Attribute } from "@strapi/strapi";
 
+export interface OtherFourthwall extends Schema.Component {
+  collectionName: "components_other_fourthwalls";
+  info: {
+    displayName: "Fourthwall";
+    icon: "handHeart";
+  };
+  attributes: {
+    title: Attribute.String;
+    imageUrl: Attribute.String;
+    Price: Attribute.Decimal;
+    Link: Attribute.String;
+    Description: Attribute.String;
+  };
+}
+
 export interface SharedButton extends Schema.Component {
   collectionName: "components_shared_buttons";
   info: {
@@ -195,6 +210,7 @@ export interface SocialMediaYoutube extends Schema.Component {
 declare module "@strapi/types" {
   export module Shared {
     export interface Components {
+      "other.fourthwall": OtherFourthwall;
       "shared.button": SharedButton;
       "shared.link": SharedLink;
       "shared.menu-link": SharedMenuLink;

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "site-config",
     "pluralName": "site-configs",
-    "displayName": "Site Config"
+    "displayName": "Site Config",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -13,6 +14,9 @@
   "attributes": {
     "siteTitle": {
       "type": "string"
+    },
+    "description": {
+      "type": "richtext"
     }
   }
 }

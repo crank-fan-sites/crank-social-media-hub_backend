@@ -866,12 +866,14 @@ export interface ApiSiteConfigSiteConfig extends Schema.SingleType {
     singularName: "site-config";
     pluralName: "site-configs";
     displayName: "Site Config";
+    description: "";
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     siteTitle: Attribute.String;
+    description: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
