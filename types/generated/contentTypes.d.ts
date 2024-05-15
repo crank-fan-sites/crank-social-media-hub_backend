@@ -874,6 +874,7 @@ export interface ApiSiteConfigSiteConfig extends Schema.SingleType {
   attributes: {
     siteTitle: Attribute.String;
     description: Attribute.RichText;
+    banner: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

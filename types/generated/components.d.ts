@@ -5,6 +5,7 @@ export interface OtherFourthwall extends Schema.Component {
   info: {
     displayName: "Fourthwall";
     icon: "handHeart";
+    description: "";
   };
   attributes: {
     title: Attribute.String;
@@ -12,6 +13,7 @@ export interface OtherFourthwall extends Schema.Component {
     Price: Attribute.Decimal;
     Link: Attribute.String;
     Description: Attribute.String;
+    theImage: Attribute.Media;
   };
 }
 
@@ -77,6 +79,7 @@ export interface SocialMediaDiscord extends Schema.Component {
     channel_name: Attribute.String;
     widget_url: Attribute.String;
     buttonLink: Attribute.Component<"shared.button", true>;
+    sideImage: Attribute.Media;
   };
 }
 
@@ -179,6 +182,7 @@ export interface SocialMediaTwitch extends Schema.Component {
     channel_handle: Attribute.String;
     highlighted_playlist: Attribute.String;
     buttonLink: Attribute.Component<"shared.button", true>;
+    sideImage: Attribute.Media;
   };
 }
 

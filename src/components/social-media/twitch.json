@@ -16,6 +16,16 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.button"
+    },
+    "sideImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
