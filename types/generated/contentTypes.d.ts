@@ -810,6 +810,7 @@ export interface ApiFrontPageFrontPage extends Schema.SingleType {
     youtube: Attribute.Component<"social-media.youtube">;
     soundcloud: Attribute.Component<"social-media.soundcloud", true>;
     soundcloudConfig: Attribute.Component<"social-media.soundcloud-config">;
+    fourthwall: Attribute.Component<"other.fourthwall">;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -853,6 +854,50 @@ export interface ApiMainLinkMainLink extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       "api::main-link.main-link",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSecondPageSecondPage extends Schema.SingleType {
+  collectionName: "second_pages";
+  info: {
+    singularName: "second-page";
+    pluralName: "second-pages";
+    displayName: "Second Page";
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    integrations: Attribute.DynamicZone<
+      [
+        "other.fourthwall",
+        "social-media.discord",
+        "social-media.instagram",
+        "social-media.patreon",
+        "social-media.reddit",
+        "social-media.soundcloud-config",
+        "social-media.soundcloud",
+        "social-media.tiktok",
+        "social-media.twitch",
+        "social-media.twitter",
+        "social-media.youtube"
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      "api::second-page.second-page",
+      "oneToOne",
+      "admin::user"
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      "api::second-page.second-page",
       "oneToOne",
       "admin::user"
     > &
@@ -913,6 +958,7 @@ declare module "@strapi/types" {
       "plugin::users-permissions.user": PluginUsersPermissionsUser;
       "api::front-page.front-page": ApiFrontPageFrontPage;
       "api::main-link.main-link": ApiMainLinkMainLink;
+      "api::second-page.second-page": ApiSecondPageSecondPage;
       "api::site-config.site-config": ApiSiteConfigSiteConfig;
     }
   }

@@ -61,6 +61,11 @@
       "type": "component",
       "repeatable": false,
       "component": "social-media.soundcloud-config"
+    },
+    "fourthwall": {
+      "type": "component",
+      "repeatable": false,
+      "component": "other.fourthwall"
     }
   }
 }

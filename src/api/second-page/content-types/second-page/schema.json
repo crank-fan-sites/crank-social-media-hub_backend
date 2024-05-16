@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "second_pages",
+  "info": {
+    "singularName": "second-page",
+    "pluralName": "second-pages",
+    "displayName": "Second Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "integrations": {
+      "type": "dynamiczone",
+      "components": [
+        "other.fourthwall",
+        "social-media.discord",
+        "social-media.instagram",
+        "social-media.patreon",
+        "social-media.reddit",
+        "social-media.soundcloud-config",
+        "social-media.soundcloud",
+        "social-media.tiktok",
+        "social-media.twitch",
+        "social-media.twitter",
+        "social-media.youtube"
+      ]
+    }
+  }
+}

@@ -196,6 +196,7 @@ export interface SocialMediaTwitter extends Schema.Component {
     dark_mode: Attribute.Boolean & Attribute.DefaultTo<false>;
     widget_height: Attribute.Integer & Attribute.DefaultTo<800>;
     buttonLink: Attribute.Component<"shared.button", true>;
+    sideImage: Attribute.Media;
   };
 }
 
