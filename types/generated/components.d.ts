@@ -124,6 +124,7 @@ export interface SocialMediaPatreon extends Schema.Component {
       >;
     campaign_id: Attribute.String;
     buttonLink: Attribute.Component<"shared.button", true>;
+    sideImage: Attribute.Media;
   };
 }
 
@@ -135,6 +136,7 @@ export interface SocialMediaReddit extends Schema.Component {
   attributes: {
     subreddit: Attribute.String;
     buttonLink: Attribute.Component<"shared.button", true>;
+    sideImage: Attribute.Media;
   };
 }
 
